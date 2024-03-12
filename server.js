@@ -21,7 +21,7 @@ const start = async () => {
   try {
     db.sync();
 
-    http.createServer(server).listen(PORT, () => {
+    http.createServer(server).listen(() => {
       console.log(`SERVER RUNNING ON PORT ${PORT}`);
     });
   } catch (error) {
