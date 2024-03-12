@@ -5,7 +5,7 @@ const { Sequelize } = require("sequelize");
 //   storage: "test.sqlite",
 // });
 const sequelize = new Sequelize(
-  `postgres://postgres:123456@localhost:5433/discover`,
+  `postgres://onlayndars:onlayndars@localhost:5433/host4577_`,
   { dialect: "postgres" }
 );
 
