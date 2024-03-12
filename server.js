@@ -6,7 +6,7 @@ const cors = require("cors");
 
 const db = require("./config/db");
 const server = express();
-const PORT = process.env.PORT || 4577;
+const PORT = process.env.PORT || 8080;
 
 server.use(cors());
 server.use(express.json());
@@ -21,7 +21,7 @@ const start = async () => {
   try {
     db.sync();
 
-    http.createServer(server).listen(() => {
+    http.createServer(server).listen(PORT, () => {
       console.log(`SERVER RUNNING ON PORT ${PORT}`);
     });
   } catch (error) {
