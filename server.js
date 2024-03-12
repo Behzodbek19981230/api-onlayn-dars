@@ -4,7 +4,7 @@ const router = require("./app/routes");
 const cors = require("cors");
 const db = require("./config/db");
 const server = express();
-const PORT = 3000;
+const PORT = 986500;
 const ADDRESS = "127.0.0.1";
 server.use(cors());
 server.use(express.json());
