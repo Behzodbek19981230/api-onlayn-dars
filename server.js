@@ -18,7 +18,7 @@ const start = async () => {
   try {
     db.sync();
 
-    server.listen(PORT, ADDRESS, () => {
+    server.listen(ADDRESS, () => {
       console.log(`SERVER RUNNING ON PORT ${PORT}`);
     });
   } catch (error) {
