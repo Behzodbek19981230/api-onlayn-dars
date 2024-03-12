@@ -5,7 +5,7 @@ const cors = require("cors");
 const db = require("./config/db");
 const server = express();
 const PORT = 3002;
-const ADDRESS = "localhost";
+const ADDRESS = "http://api.onlayn-dars.uz";
 server.use(cors());
 server.use(express.json());
 server.use("/public", express.static(__dirname + "/public"));
