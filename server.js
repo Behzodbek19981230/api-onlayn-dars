@@ -6,7 +6,7 @@ const cors = require("cors");
 
 const db = require("./config/db");
 const server = express();
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8443;
 
 server.use(cors());
 server.use(express.json());
