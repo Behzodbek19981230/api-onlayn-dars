@@ -17,7 +17,9 @@ server.get("/", (req, res) => {
 const start = async () => {
   try {
     db.sync();
-
+    server.on("listening", function () {
+      console.log("ok, server is running");
+    });
     server.listen(PORT, ADDRESS, () => {
       console.log(`SERVER RUNNING ON PORT ${PORT}`);
     });
