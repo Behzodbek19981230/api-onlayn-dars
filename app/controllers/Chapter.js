@@ -97,17 +97,19 @@ class ChapterControlled {
           },
           group: ["user"],
         });
-        lessons.forEach(async (lesson) => {
-          await Lesson.create({
-            user: lesson?.user,
-            object: objectFind?.id,
-            chapter: chapters?.id,
+        if (lessons.length > 0) {
+          lessons.forEach(async (lesson) => {
+            await Lesson.create({
+              user: lesson?.user,
+              object: objectFind?.id,
+              chapter: chapters?.id,
+            });
+            await Notification.create({
+              user: lesson?.user,
+              text: `${objectFind?.name} faningizga ${name} nomli bo'lim qo'shildi !`,
+            });
           });
-          await Notification.create({
-            user: lesson?.user,
-            text: `${objectFind?.name} faningizga ${name} nomli bo'lim qo'shildi !`,
-          });
-        });
+        }
 
         res.json({ code: 200, status: "OK", chapters });
       }
