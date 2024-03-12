@@ -7,7 +7,7 @@ const cors = require("cors");
 const db = require("./config/db");
 const server = express();
 const PORT = 8008;
-const ADDRESS = "127.0.0.1";
+const ADDRESS = "5.182.26.16";
 server.use(cors());
 server.use(express.json());
 server.use("/public", express.static(__dirname + "/public"));
