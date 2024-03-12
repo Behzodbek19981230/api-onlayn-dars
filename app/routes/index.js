@@ -1,0 +1,28 @@
+const route = require("express").Router();
+const user = require("./user");
+const test = require("./test");
+const tester = require("./tester");
+const prepare_tests = require("./prepareTest");
+const object = require("./object");
+const role = require("./role");
+const chapter = require("./chapter");
+const theme = require("./thems");
+const quiz = require("./quiz");
+const auth = require("../middleware/auth");
+const course = require("./course");
+const lesson = require("./lesson");
+const notification = require("./notification");
+route.use("/prepare_test", prepare_tests);
+route.use("/object", auth, object);
+route.use("/role", role);
+route.use("/test", auth, test);
+route.use("/tester", tester);
+route.use("/user", user);
+route.use("/chapter", auth, chapter);
+route.use("/theme", auth, theme);
+route.use("/quiz", auth, quiz);
+route.use("/course", auth, course);
+route.use("/lesson", auth, lesson);
+route.use("/notification", auth, notification);
+
+module.exports = route;
