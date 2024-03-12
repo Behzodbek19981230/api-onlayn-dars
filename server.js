@@ -4,8 +4,8 @@ const router = require("./app/routes");
 const cors = require("cors");
 const db = require("./config/db");
 const server = express();
-const PORT = 3002;
-const ADDRESS = "http://api.onlayn-dars.uz";
+const PORT = 3000;
+const ADDRESS = "127.0.0.1";
 server.use(cors());
 server.use(express.json());
 server.use("/public", express.static(__dirname + "/public"));
@@ -18,7 +18,7 @@ const start = async () => {
   try {
     db.sync();
 
-    server.listen(ADDRESS, () => {
+    server.listen(PORT, ADDRESS, () => {
       console.log(`SERVER RUNNING ON PORT ${PORT}`);
     });
   } catch (error) {
