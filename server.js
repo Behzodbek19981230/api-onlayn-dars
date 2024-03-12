@@ -1,17 +1,14 @@
 require("dotenv").config();
 const express = require("express");
-const http = require("http");
 const router = require("./app/routes");
 const cors = require("cors");
-
 const db = require("./config/db");
 const server = express();
-const PORT = 3001;
+const PORT = 3002;
 const ADDRESS = "localhost";
 server.use(cors());
 server.use(express.json());
 server.use("/public", express.static(__dirname + "/public"));
-
 server.use("/api", router);
 server.get("/", (req, res) => {
   res.json({ info: "Server up and running" });
