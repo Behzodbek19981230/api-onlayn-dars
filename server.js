@@ -6,7 +6,7 @@ const cors = require("cors");
 
 const db = require("./config/db");
 const server = express();
-const PORT = 8008;
+const PORT = 0;
 
 server.use(cors());
 server.use(express.json());
@@ -21,7 +21,7 @@ const start = async () => {
   try {
     db.sync();
 
-    http.createServer(server).listen(PORT, () => {
+    http.createServer(server).listen(() => {
       console.log(`SERVER RUNNING ON PORT ${PORT}`);
     });
   } catch (error) {
