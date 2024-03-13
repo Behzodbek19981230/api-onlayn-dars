@@ -25,7 +25,7 @@ route.post("/", async (req, res) => {
         where: {
           chapter: chapterFind?.id,
         },
-        group: ["user"],
+        group: ["id", "user"],
       });
       const deletedLessons = await Lesson.destroy({
         where: {

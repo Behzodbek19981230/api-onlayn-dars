@@ -162,7 +162,7 @@ route.get("/object/:id", async (req, res) => {
   try {
     const lessons = await Lesson.findAll({
       where: { object: req.params.id, user: req.query.user },
-      group: ["chapter"],
+      group: ["id", "chapter"],
       include: [
         {
           as: "chapters",

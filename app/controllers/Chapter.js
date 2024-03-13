@@ -95,7 +95,7 @@ class ChapterControlled {
           where: {
             object: objectFind?.id,
           },
-          group: ["user"],
+          group: ["id", "user"],
         });
         if (lessons.length > 0) {
           lessons.forEach(async (lesson) => {
