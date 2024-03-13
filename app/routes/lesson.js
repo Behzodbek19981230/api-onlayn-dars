@@ -1,3 +1,4 @@
+const sequelize = require("sequelize");
 const Chapter = require("../models/Chapter");
 const Course = require("../models/Course");
 const Lesson = require("../models/Lesson");
@@ -162,16 +163,21 @@ route.get("/object/:id", async (req, res) => {
   try {
     const lessons = await Lesson.findAll({
       where: { object: req.params.id, user: req.query.user },
-      group: ["id", "chapter"],
+      attributes: [
+        [sequelize.literal('"lessons"."chapter"'), "lessonId"],
+        "chapter",
+      ],
+      group: ['"chapters"."id"', "chapter"],
       include: [
         {
-          as: "chapters",
           model: Chapter,
+          as: "chapters",
           required: true,
           attributes: ["id", "name"],
         },
       ],
     });
+
     const customRes = await Promise.all(
       lessons.map(async (lesson) => {
         const lessonStart = await Lesson.count({

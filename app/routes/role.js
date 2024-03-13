@@ -6,6 +6,6 @@ const Role = require("../controllers/Role");
 route.get("/", Role.getAllRole);
 route.post("/", Role.addRoles);
 route.delete("/:id", Role.delete);
-route.patch("/:id", Role.editRole);
+route.put("/:id", Role.editRole);
 
 module.exports = route;
