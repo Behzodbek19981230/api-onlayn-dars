@@ -14,6 +14,7 @@ const lesson = require("./lesson");
 const notification = require("./notification");
 const banner = require("./banner");
 const teacher = require("./teacher");
+const lessonsLanding = require("./lessonsLanding");
 route.use("/prepare_test", prepare_tests);
 route.use("/object", auth, object);
 route.use("/role", role);
@@ -28,5 +29,6 @@ route.use("/lesson", auth, lesson);
 route.use("/notification", auth, notification);
 route.use("/banner", banner);
 route.use("/teacher", teacher);
+route.use("/lesson-landing", lessonsLanding);
 
 module.exports = route;

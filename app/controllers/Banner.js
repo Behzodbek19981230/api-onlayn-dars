@@ -12,7 +12,13 @@ class BannerController {
       });
 
       if (!response.rows.length > 0) {
-        return errorResponse(res, 404, "Not found", "response is empty");
+        return res.status(200).json({
+          code: 200,
+          status: "OK",
+          message: "Success Fetching Data",
+          total: 0,
+          data: [],
+        });
       }
 
       res.status(200).json({
